@@ -1,0 +1,13 @@
+Alias:
+map - 791
+cell - 1296
+
+Disney Minigolf:
+map - 804
+cell - 1298
+
+Versusville:
+map - 805
+cell - 1298
+
+RLRRLRLLRLRRLRLL

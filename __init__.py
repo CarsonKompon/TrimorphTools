@@ -24,8 +24,8 @@ bl_info = {
 
 import bpy
 
-from . dmg_importer import ImportDMG
-from . dma_importer import ImportDMA
+from .dmg_constructor import ImportDMG
+from .dma_importer import ImportDMA
 
 def menu_dmg_import(self, context):
     self.layout.operator(ImportDMG.bl_idname, text="Trimorph Locale (.dmg)")

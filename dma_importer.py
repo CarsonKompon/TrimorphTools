@@ -7,6 +7,7 @@ import datetime
 import struct
 import os
 import io
+from .data_stream import *
 
 # If this is not an empty string then it will output the object data to a json file at the given path
 DEBUG_JSON = ""
@@ -126,34 +127,6 @@ def create_bone_hierarchy(bones, parent, armature):
         edit_bone.tail = edit_bone.head + mathutils.Vector([0, 1, 0])
         if(len(bone["children"]) > 0):
             create_bone_hierarchy(bone["children"], edit_bone, armature)
-
-# Define a ton of functions for reading the locale file
-def read_string(stream):
-    length = stream.read(2)
-    length = int.from_bytes(length, byteorder='big')
-    string = stream.read(length)
-    return string.decode("utf-8")
-
-def read_char(stream):
-    return int.from_bytes(stream.read(2), byteorder='big')
-
-def read_int(stream):
-    return int.from_bytes(stream.read(4), byteorder='big')
-
-def read_short(stream):
-    return int.from_bytes(stream.read(2), byteorder='big')
-
-def read_long(stream):
-    return int.from_bytes(stream.read(8), byteorder='big')
-
-def read_bool(stream):
-    return stream.read(1) == b'\x01'
-
-def read_float(stream):
-    return struct.unpack('>f', stream.read(4))[0]
-
-def read_byte(stream):
-    return int.from_bytes(stream.read(1), byteorder='big')
 
 # ImportHelper is a helper class, defines filename and
 # invoke() function which calls the file selector.
